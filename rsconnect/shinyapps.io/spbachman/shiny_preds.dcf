@@ -1,0 +1,13 @@
+name: shiny_preds
+title: shiny_preds
+username: spbachman
+account: spbachman
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 12145568
+bundleId: 8737205
+url: https://spbachman.shinyapps.io/shiny_preds/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: lifeform_mapping.csv|lifeform_mapping_2023.csv|prepare_predictions.R
