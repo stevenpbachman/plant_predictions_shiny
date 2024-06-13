@@ -3,6 +3,7 @@ library(shiny)
 library(DT)
 library(dplyr)
 library(bslib)
+library(bsicons)
 
 # Load your data
 predictions <- read.csv("predictions.csv")
@@ -17,6 +18,15 @@ ui <- fluidPage(
   titlePanel("Plant predictions filter"),
   sidebarLayout(
     sidebarPanel(
+      #tags$a(href = "https://github.com/stevenpbachman/plant_predictions_shiny", "View Source Code", target = "_blank"),
+      tags$a(
+        tags$span(
+          bsicons::bs_icon("code-slash"), "Source code"
+        ),
+        href = "https://github.com/stevenpbachman/plant_predictions_shiny",
+        target = "_blank"
+      ),
+      tags$p("A simple shiny app to filter plant extinction risk predictions by taxonomy, geography and lifeform."),
       selectInput('redlist_filter', 'Red List status:', choices = c("All", unique(predictions$red_list))),
       selectInput('prediction_filter', 'Predicted threat:', choices = c("All", unique(predictions$prediction))),
       selectInput('confidence_filter', 'Prediction confidence:', choices = c("All", unique(predictions$confidence))),
@@ -27,13 +37,14 @@ ui <- fluidPage(
       selectInput('area_filter', 'Botanical country:', choices = c("All", unique(predictions$area))),
       selectInput('lf_filter', 'Life form:', choices = c("All", unique(predictions$lifeform))),
       
-      downloadButton('downloadFiltered', 'Download Filtered Table')
+      downloadButton('downloadFiltered', 'Download Filtered Table'),
+      width = 2
       #actionButton('reset_filters', 'Reset Filters')  # Add reset button
     ),
     mainPanel(
       DTOutput("table")
     )
-  )
+    )
 )
 
 server <- function(input, output, session) {
