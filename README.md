@@ -1,7 +1,9 @@
 # Plant Predictions Shiny
 Simple shiny app to filter plant extinction risk predictions by taxonomy, geography and lifeform.
 
-Based on Bachman et al. 2024:
+Live version: https://spbachman.shinyapps.io/shiny_preds/
+
+Based on Bachman *et al*. 2024:
 https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.19592
 
 Raw data available here:
